@@ -31,6 +31,16 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react'] // ... com os seguintes presets
           }
         }]
+      },
+      {
+        test: /\.(jpe?g|ico|png|gif|svg)$/i,
+        // loader: 'file-loader?name=img/[name].[ext]'    // código antigo
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: 'img/[name].[ext]'
+          }
+        }]
       }
     ]
   },

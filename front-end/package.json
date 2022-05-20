@@ -2,7 +2,10 @@
   "name": "behappywith.me",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node_modules\\.bin\\webpack-dev-server",
+    "build": "node_modules\\.bin\\webpack"
+  },
   "author": "Angela Caldas",
   "license": "ISC",
   "dependencies": {
@@ -15,6 +18,7 @@
     "@babel/preset-env": "^7.18.0",
     "@babel/preset-react": "^7.17.12",
     "babel-loader": "^8.2.5",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
