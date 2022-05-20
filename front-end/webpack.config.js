@@ -1,5 +1,6 @@
 const webpack = require('webpack') // node_modules
 const path = require('path') // core do Node.js
+const HtmlWebpackPlugin = require('html-webpack-plugin') // gera o html em dist automaticamente com base em um modelo na pasta src
 
 module.exports = {
   // informando ao Webpack onde estarão os arquivos-fontes
@@ -12,6 +13,12 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.join(__dirname, 'src/index.html')
+    })
+  ],
   module: {
     rules: [
       {
