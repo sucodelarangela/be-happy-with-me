@@ -1,6 +1,7 @@
 const webpack = require('webpack'); // node_modules
 const path = require('path'); // core do Node.js
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // gera o html em dist automaticamente com base em um modelo na pasta src
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // extrai todo o css do bundle.js e salva em um único arquivo css na pasta dist.
 
 module.exports = {
   // informando ao Webpack onde estarão os arquivos-fontes
@@ -17,7 +18,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html', // arquivo gerado em dist
       template: path.join(__dirname, 'src/index.html') // template do arquivo em src
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
+    }) // nome do arquivo css gerado na pasta dist
   ],
   module: {
     rules: [
@@ -47,16 +51,9 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
-        use: [
-          // css-loader e style-loader trabalham em conjunto, o 1º fazendo o require dos arquivos e o 2º aplicando0o na página
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          }
-        ]
+        test: /\.css$/i,
+        // css-loader e style-loader trabalham em conjunto, o 1º fazendo o require dos arquivos e o 2º aplicando-o na página. Porém, estes plugins salvam todo o css inline no bundle.js, o que não é uma boa prática e gera lentidão no carregamento da página. Por isso, os usaremos em conjunto com o plugin mini-css-extract-plugin para extrair todo o css do js e salvá-lo em um único arquivo css na pasta dist.
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },

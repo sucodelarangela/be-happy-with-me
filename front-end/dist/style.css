@@ -1,0 +1,13 @@
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/index.css ***!
+  \*********************************************************************/
+/* Este css será carregado na página através do css-loader e style-loader do webpack. Para que funcione, precisamos fazer o require do arquivo css no arquivo index.jsx*/
+#main {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  color:red;
+}
