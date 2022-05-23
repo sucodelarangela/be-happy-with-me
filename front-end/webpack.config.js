@@ -2,6 +2,7 @@ const webpack = require('webpack'); // node_modules
 const path = require('path'); // core do Node.js
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // gera o html em dist automaticamente com base em um modelo na pasta src
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // extrai todo o css do bundle.js e salva em um único arquivo css na pasta dist.
+const TerserPlugin = require('terser-webpack-plugin'); // para minificar os arquivos de produção
 
 module.exports = {
   // informando ao Webpack onde estarão os arquivos-fontes
@@ -20,9 +21,13 @@ module.exports = {
       template: path.join(__dirname, 'src/index.html') // template do arquivo em src
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css'
-    }) // nome do arquivo css gerado na pasta dist
+      filename: 'style.css' // nome do arquivo css gerado na pasta dist
+    })
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()]
+  },
   module: {
     rules: [
       {
