@@ -1,9 +1,14 @@
 import React from 'react'
+import Header from './Header'
 
+// É uma boa prática criar componentes stateful por meio da sintaxe 'class'.
 class App extends React.Component {
   render() {
     return (
-      <h1>Component App!</h1>
+      <>
+        <Header />
+        <h1>Component App!</h1>
+      </>
     )
   }
 }
