@@ -1,7 +1,6 @@
 div.header {
   background: #2c80b9;
   min-width: 320px;
-  height: auto;
 }
 
 div.header img {
@@ -10,7 +9,7 @@ div.header img {
 }
 
 div.header img.logo {
-  float: left;
+  /* float: left; */
   height: 92px;
   width: 164px;
 }
