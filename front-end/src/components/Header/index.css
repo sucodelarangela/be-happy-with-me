@@ -9,7 +9,7 @@ div.header img {
 }
 
 div.header img.logo {
-  /* float: left; */
+  float: left;
   height: 92px;
   width: 164px;
 }
