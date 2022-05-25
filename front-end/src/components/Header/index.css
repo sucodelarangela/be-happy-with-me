@@ -1,6 +1,7 @@
 div.header {
-  background-color: #2c80b9;
+  background: #2c80b9;
   min-width: 320px;
+  height: auto;
 }
 
 div.header img {
